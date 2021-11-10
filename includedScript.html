@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form name="myForm">
+      <label for="userAge">Age:</label>
+      <input type="text" name="userAge" id="userAge" />
+      <label for="fName">Name:</label>
+      <input type="text" name="fName" id="fName" />
+      <input type="button" name="submit" value="Submit" onclick="validateForm()">
+    </form>
+
+    <script>
+        function validateForm() {
+            let x = document.forms["myForm"]["fName"].value;
+            if (x == "") {
+                alert("first name must be filled out");
+                document.getElementById("fName").style.borderColor="#e52213";
+                document.getElementById("fName").focus();
+                return false;
+            } else {
+                document.getElementById("fName").style.borderColor = null;
+            }
+   
+            let y = document.forms["myForm"]["userAge"].value;
+            if (y == "") {
+                alert("Age must be filled out");
+                document.getElementById("userAge").style.borderColor="#e52213";
+                document.getElementById("userAge").focus();
+                return false;
+            } else {
+                document.getElementById("userAge").style.borderColor = null;
+            }
+    
+            if (isNaN(y)) {
+                alert("age must be a number");
+                document.getElementById("userAge").style.borderColor="#e52213";
+                document.getElementById("userAge").focus();
+                return false;
+            } else {
+                document.getElementById("userAge").style.borderColor = null;
+            }
+        }
+    </script>
+  </body>
+</html>
